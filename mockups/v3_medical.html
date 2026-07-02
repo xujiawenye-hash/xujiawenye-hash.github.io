@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>电子烟设计手册 - 医疗蓝版</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: #f5f7fa;
+  color: #2c3e50;
+  min-height: 100vh;
+}
+header {
+  text-align: center;
+  padding: 54px 0 36px;
+  background: #fff;
+  border-bottom: 1px solid #e4e9f0;
+}
+h1 {
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  color: #1a5f9e;
+}
+.search-wrap {
+  max-width: 600px;
+  margin: 28px auto 0;
+  padding: 0 20px;
+}
+.search-box {
+  width: 100%;
+  height: 56px;
+  background: #f5f7fa;
+  border: 2px solid #c5d9e8;
+  border-radius: 28px;
+  text-align: center;
+  font-size: 18px;
+  color: #2c3e50;
+  outline: none;
+  transition: all .2s;
+}
+.search-box::placeholder { color: #8fa8b9; }
+.search-box:focus { border-color: #1a5f9e; background: #fff; }
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 500px;
+  padding: 24px 0;
+}
+.sidebar {
+  width: 200px;
+  padding: 20px 0;
+  background: #fff;
+  border-radius: 12px;
+  margin: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  height: fit-content;
+}
+.cat-item {
+  padding: 16px 28px;
+  font-size: 15px;
+  color: #5a6c7d;
+  cursor: pointer;
+  transition: all .15s;
+  border-left: 4px solid transparent;
+  margin: 4px 12px;
+  border-radius: 0 8px 8px 0;
+}
+.cat-item:hover { color: #1a5f9e; background: #eef5fb; }
+.cat-item.active { color: #fff; border-left-color: #1a5f9e; background: #1a5f9e; font-weight: 500; }
+.main {
+  flex: 1;
+  padding: 32px 40px;
+  background: #fff;
+  border-radius: 12px;
+  margin: 12px 12px 12px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.06);
+}
+.empty-state {
+  text-align: center;
+  padding: 100px 0;
+}
+.empty-state p:first-child { font-size: 18px; margin-bottom: 8px; color: #2c3e50; }
+.empty-state p:last-child { color: #8fa8b9; }
+</style>
+</head>
+<body>
+<header>
+  <h1>电子烟设计手册</h1>
+  <div class="search-wrap">
+    <input type="text" class="search-box" placeholder="搜索">
+  </div>
+</header>
+<div class="container">
+  <aside class="sidebar">
+    <div class="cat-item active">结构类</div>
+    <div class="cat-item">电路类</div>
+    <div class="cat-item">雾化类</div>
+    <div class="cat-item">外观类</div>
+    <div class="cat-item">生产类</div>
+  </aside>
+  <main class="main">
+    <div class="empty-state">
+      <p>选择左侧分类，或输入关键词搜索</p>
+      <p>浏览 1,112 条设计问题与规范</p>
+    </div>
+  </main>
+</div>
+</body>
+</html>
