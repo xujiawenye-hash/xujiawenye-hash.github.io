@@ -172,8 +172,18 @@ body {
   background: #eef2ff; border-color: #4f46e5; color: #4f46e5;
 }
 
+/* 结果区固定表头（来源筛选 + 子分类） */
+.results-header {
+  position: sticky;
+  top: 0;
+  margin: -24px -32px 0;
+  padding: 24px 32px 12px;
+  background: #f5f7fa;
+  z-index: 10;
+}
+
 .result-info {
-  font-size: 12px; color: #9ca3af; padding: 2px 0 14px;
+  font-size: 12px; color: #9ca3af; padding: 2px 0 2px;
 }
 
 /* 对话气泡卡片 */
@@ -319,6 +329,7 @@ body {
   .search-wrap input { padding: 0 12px 0 30px; }
   .page-sub { display: none; }
   .content { padding: 16px 16px 100px; }
+  .results-header { margin: -16px -16px 0; padding: 16px 16px 12px; }
   .bottom-bar { left: 0; }
   .hero .stats { flex-direction: column; align-items: center; gap: 12px; }
   .hero .stat { width: 100%; max-width: 240px; }
@@ -392,15 +403,17 @@ body {
       </div>
 
       <div id="resultsArea" style="display: none;">
-        <div class="filter-row">
-          <span class="label">来源：</span>
-          <span class="filter-chip active" data-source="" onclick="filterSource(this, '')">全部</span>
-          <span class="filter-chip" data-source="试产验证" onclick="filterSource(this, '试产验证')">试产验证</span>
-          <span class="filter-chip" data-source="实验室测试" onclick="filterSource(this, '实验室测试')">实验室测试</span>
-        </div>
+        <div class="results-header">
+          <div class="filter-row">
+            <span class="label">来源：</span>
+            <span class="filter-chip active" data-source="" onclick="filterSource(this, '')">全部</span>
+            <span class="filter-chip" data-source="试产验证" onclick="filterSource(this, '试产验证')">试产验证</span>
+            <span class="filter-chip" data-source="实验室测试" onclick="filterSource(this, '实验室测试')">实验室测试</span>
+          </div>
 
-        <div class="subcats" id="subcatsRow"></div>
-        <div class="result-info" id="resultInfo"></div>
+          <div class="subcats" id="subcatsRow"></div>
+          <div class="result-info" id="resultInfo"></div>
+        </div>
 
         <div class="chat-list" id="chatList"></div>
         <div class="pagination" id="pagination"></div>
