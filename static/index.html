@@ -550,8 +550,7 @@ function init() {
     debounceTimer = setTimeout(() => { page = 1; render(); }, 200);
   });
 
-  document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key === 'Escape') { e.target.value = ''; currentSearch = ''; document.getElementById('bottomInput').value = ''; render(); } });
-  document.getElementById('bottomInput').addEventListener('keydown', e => { if (e.key === 'Escape') { e.target.value = ''; currentSearch = ''; document.getElementById('searchInput').value = ''; render(); } });
+  document.getElementById('searchInput').addEventListener('keydown', e => { if (e.key === 'Escape') { e.target.value = ''; currentSearch = ''; render(); } });
 
   document.addEventListener('keydown', e => {
     if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
@@ -720,8 +719,6 @@ function renderPagination(total, pages) {
     phtml += `<button class="page-btn" onclick="goPage(${pages})" ${page === pages ? 'disabled' : ''}>»</button>`;
   }
   document.getElementById('pagination').innerHTML = phtml;
-}
-
 }
 
 function goPage(p) {
