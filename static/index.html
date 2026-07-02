@@ -240,9 +240,8 @@ body {
 
 .bubble-detail {
   border-top: 1px solid #f3f4f6; padding: 12px 16px; background: #fafafa;
-  font-size: 13px; color: #4b5563; display: none;
+  font-size: 13px; color: #4b5563; display: block;
 }
-.bubble-detail.show { display: block; }
 .bubble-detail-row {
   margin-bottom: 10px;
 }
@@ -251,13 +250,6 @@ body {
   font-weight: 600; color: #111827; display: block; margin-bottom: 3px; font-size: 12px;
 }
 
-.bubble-footer {
-  padding: 8px 16px 12px; display: flex; gap: 8px; justify-content: flex-end;
-}
-.action-btn {
-  padding: 5px 10px; border-radius: 6px; border: 1px solid #e5e7eb;
-  background: #fff; color: #6b7280; font-size: 12px; cursor: pointer; font-family: inherit;
-}
 .action-btn:hover { background: #f9fafb; color: #374151; }
 
 .empty-result {
@@ -630,13 +622,10 @@ function renderChat(filtered) {
             </div>
           </div>
           ${hasDetail ? `
-          <div class="bubble-detail" id="detail-${start + idx}">
+          <div class="bubble-detail">
             ${i.reason ? `<div class="bubble-detail-row"><div class="label">原因分析</div><div>${esc(i.reason)}</div></div>` : ''}
             ${i.solution ? `<div class="bubble-detail-row"><div class="label">改善对策</div><div>${esc(i.solution)}</div></div>` : ''}
             ${i.plan ? `<div class="bubble-detail-row"><div class="label">改善计划</div><div>${esc(i.plan)}</div></div>` : ''}
-          </div>
-          <div class="bubble-footer">
-            <button class="action-btn" onclick="toggleDetail(event, ${start + idx})">展开详情</button>
           </div>` : ''}
         </div>
       </div>`;
@@ -662,13 +651,6 @@ function renderPagination(total, pages) {
   document.getElementById('pagination').innerHTML = phtml;
 }
 
-function toggleDetail(e, idx) {
-  e.stopPropagation();
-  const el = document.getElementById('detail-' + idx);
-  if (!el) return;
-  el.classList.toggle('show');
-  const btn = e.target;
-  btn.textContent = el.classList.contains('show') ? '收起详情' : '展开详情';
 }
 
 function goPage(p) {
