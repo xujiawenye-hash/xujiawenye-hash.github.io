@@ -356,6 +356,7 @@ body {
         <span class="name">全部</span>
         <span class="count">1112</span>
       </div>
+<div class="category-item" data-broad="结构类" onclick="selectBroadCat(this, '结构类')"><span class="icon">⚙</span><span class="name">结构类</span><span class="count">239</span></div><div class="category-item" data-broad="电路类" onclick="selectBroadCat(this, '电路类')"><span class="icon">⚡</span><span class="name">电路类</span><span class="count">148</span></div><div class="category-item" data-broad="雾化类" onclick="selectBroadCat(this, '雾化类')"><span class="icon">💧</span><span class="name">雾化类</span><span class="count">179</span></div><div class="category-item" data-broad="外观类" onclick="selectBroadCat(this, '外观类')"><span class="icon">🎨</span><span class="name">外观类</span><span class="count">234</span></div><div class="category-item" data-broad="生产类" onclick="selectBroadCat(this, '生产类')"><span class="icon">🏭</span><span class="name">生产类</span><span class="count">312</span></div>
     </div>
 
     <div class="sidebar-footer">
@@ -452,18 +453,6 @@ const COLORS = ['#4f46e5','#059669','#d97706','#dc2626','#7c3aed','#0891b2','#be
 Object.keys(PROJECT_COUNTS).sort().forEach((p, i) => PROJ_COLORS[p] = COLORS[i % COLORS.length]);
 
 function init() {
-  const list = document.getElementById('categoryList');
-  const order = ['结构类','电路类','雾化类','外观类','生产类'];
-  order.forEach(bc => {
-    const cnt = BROAD_COUNTS[bc] || 0;
-    const div = document.createElement('div');
-    div.className = 'category-item';
-    div.setAttribute('data-broad', bc);
-    div.onclick = function() { selectBroadCat(this, bc); };
-    div.innerHTML = `<span class="icon">${CAT_ICONS[bc]}</span><span class="name">${bc}</span><span class="count">${cnt}</span>`;
-    list.appendChild(div);
-  });
-
   document.getElementById('searchInput').addEventListener('input', function() {
     currentSearch = this.value.trim();
     document.getElementById('bottomInput').value = currentSearch;
