@@ -607,7 +607,7 @@ function renderChat(filtered) {
         <div class="avatar" style="background:linear-gradient(135deg,${color},${shade(color,-20)})">${avatar}</div>
         <div class="bubble">
           <div class="bubble-header">
-            <span class="bubble-title">${esc(i.project)} · ${esc(i.desc.substring(0, 40))}{i.desc.length > 40 ? '...' : ''}</span>
+            <span class="bubble-title">${esc(i.project)} · ${esc(i.desc.length > 40 ? i.desc.substring(0, 40) + '...' : i.desc)}</span>
             ${cats}
             <span class="tag ${srcClass}">${esc(i.source)}</span>
             <span class="tag ${stClass}">${stEmoji} ${esc(i.status || '--')}</span>
